@@ -18,6 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
     
     var heartNode: SCNNode?
     var diamondNode: SCNNode?
+    var sneekersNode: SCNNode?
     var imageNodes = [SCNNode]()
     var isJumping = false
     
@@ -30,8 +31,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
         sceneView.rendersContinuously = true
         let heartScene = SCNScene(named: "art.scnassets/heart.scn")
         let diamondScene = SCNScene(named: "art.scnassets/diamond.scn")
+        let sneekersScene = SCNScene(named: "art.scnassets/PegasusTrail.usdz")
         heartNode = heartScene?.rootNode
         diamondNode = diamondScene?.rootNode
+        sneekersNode = sneekersScene?.rootNode
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,7 +102,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIImagePickerControll
             case CardType.queen.rawValue :
                 shapeNode = diamondNode
             case CardType.reference.rawValue :
-                shapeNode = diamondNode
+                shapeNode = sneekersNode
             default:
                 break
             }
